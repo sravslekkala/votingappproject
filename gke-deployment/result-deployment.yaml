@@ -18,6 +18,9 @@ spec:
       - image: votingappproject-result:latest
         imagePullPolicy: IfNotPresent
         name: result
+        env:
+        - name: DB_CONNECTION_STRING
+          value: "postgres://postgres:postgres@db/postgres"
         ports:
         - containerPort: 80
           name: result
