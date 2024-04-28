@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="BidenvsTrump">
+<head>
+    <meta charset="utf-8">
+    <title>Biden vs Trump -- Live Results</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body ng-controller="statsCtrl" style="background-color: #a2dcea;">
+    <div class="main-container">
+        <h1>Voting Results: Biden vs Trump</h1>
+        <div class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+        <div class="results">
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Candidate</th>
+                        <th>Votes</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Biden</td>
+                        <td>{{ total * aPercent / 100 | number:0 }}</td>
+                        <td>{{ aPercent | number:1 }}%</td>
+                    </tr>
+                    <tr>
+                        <td>Trump</td>
+                        <td>{{ total * bPercent / 100 | number:0 }}</td>
+                        <td>{{ bPercent | number:1 }}%</td>
+                    </tr>
+                    <tr>
+                        <th>Total Votes</th>
+                        <td colspan="2">{{ total }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="socket.io.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
